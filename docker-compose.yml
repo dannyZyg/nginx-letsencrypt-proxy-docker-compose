@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: nginx:1.13.1
+    build: ./proxy 
     container_name: nginx-proxy
     ports:
       - "80:80"
@@ -16,7 +16,7 @@ services:
       - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
 
   dockergen:
-    image: jwilder/docker-gen:0.7.3
+    image: jwilder/docker-gen
     container_name: nginx-proxy-gen
     depends_on:
       - nginx
